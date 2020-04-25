@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+        <title>Home - {{ title }}</title>
+    {% else %}
+        <title>Home</title>
+    {% endif %}
+</head>
+<body>
+    <h1>Home Page</h1>
+    <h4>History</h4>
+    <div>
+        {% for rollsHistory in rollsHistory %}
+            <p>{{ rollsHistory.rollNum }}</p>
+            <p>{{ rollsHistory.rollValue }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

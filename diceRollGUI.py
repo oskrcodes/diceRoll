@@ -1,13 +1,29 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+rollsHistory = [
+    {
+        'rollNum': 'One',
+        'rollValue': 'Four'
+    },
+    {
+        'rollNum': 'Two',
+        'rollValue': 'Six'
+    },
+    {
+        'rollNum': 'Three',
+        'rollValue': 'One'
+    }
+]
 
-@app.route("/") 
+
+@app.route("/")
+@app.route("/home")
 def hello():
-    return "<h1>home page!</h1>"
+    return render_template('home.html', rollsHistory=rollsHistory)
 
 
 @app.route("/about")
 def about():
-    return "<p>about info</p>"
+    return render_template('about.html')
